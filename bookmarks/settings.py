@@ -148,4 +148,10 @@ EMAIL_BACKEND = "django.core.mail.backends.console.EmailBackend"
 AUTHENTICATION_BACKENDS = [
     "django.contrib.auth.backends.ModelBackend",
     "account.authentication.EmailAuthBackend",
+    "social_core.backends.facebook.FacebookOAuth2",
 ]
+# Facebook App ID = 3416130191972169
+SOCIAL_AUTH_FACEBOOK_KEY = "3416130191972169"
+# Facebook App Secret = 4389414a339ec4e5b2cd0387de789b3a
+SOCIAL_AUTH_FACEBOOK_SECRET = "4389414a339ec4e5b2cd0387de789b3a"
+SOCIAL_AUTH_FACEBOOK_SCOPE = ["email"]
