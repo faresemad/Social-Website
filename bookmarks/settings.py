@@ -27,8 +27,8 @@ SECRET_KEY = "django-insecure-rb0gq-dukkd-gv9t%l8kg!siek6!24ju9w40n=ejke!65hu&it
 # Whether to run the application in debug mode. Don't do this in production!
 DEBUG = True
 
-# The hosts the application is allowed to serve.
-ALLOWED_HOSTS = []
+
+ALLOWED_HOSTS = ["mysite.com", "localhost", "127.0.0.1"]
 
 
 # Application definition
@@ -44,6 +44,8 @@ INSTALLED_APPS = [
     "account.apps.AccountConfig",
     "crispy_forms",
     "crispy_bootstrap5",
+    "social_django",
+    "django_extensions",
 ]
 
 # The template packs that are allowed for crispy forms.
