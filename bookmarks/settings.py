@@ -150,6 +150,20 @@ AUTHENTICATION_BACKENDS = [
     "account.authentication.EmailAuthBackend",
     "social_core.backends.facebook.FacebookOAuth2",
 ]
+
+SOCIAL_AUTH_PIPELINE = [
+    "social_core.pipeline.social_auth.social_details",
+    "social_core.pipeline.social_auth.social_uid",
+    "social_core.pipeline.social_auth.auth_allowed",
+    "social_core.pipeline.social_auth.social_user",
+    "social_core.pipeline.user.get_username",
+    "social_core.pipeline.user.create_user",
+    "account.authentication.create_profile", # to create profile when you register with social auth
+    "social_core.pipeline.social_auth.associate_user",
+    "social_core.pipeline.social_auth.load_extra_data",
+    "social_core.pipeline.user.user_details",
+]
+
 # Facebook App ID = 3416130191972169
 SOCIAL_AUTH_FACEBOOK_KEY = "3416130191972169"
 # Facebook App Secret = 4389414a339ec4e5b2cd0387de789b3a
