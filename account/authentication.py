@@ -1,32 +1,50 @@
-# This file handles user authentication using email and password.
+# This file defines the EmailAuthBackend class for user authentication using email and password.
 
 from django.contrib.auth.models import User
 
 
 class EmailAuthBackend:
     """
-    Authenticate using an e-mail address.
+    A custom authentication backend that allows users to log in using their email address.
     """
 
-    # This function authenticates a user using their email (username) and password.
     def authenticate(self, request, username=None, password=None):
+        """
+        Authenticate a user based on email address and password.
+
+        Parameters:
+        request: The current Django HttpRequest object.
+        username: The email of the user.
+        password: The password of the user.
+
+        Returns:
+        The User object if authentication is successful, None otherwise.
+        """
         try:
-            # Get the user by email.
+            # Retrieve the user object based on the provided email.
             user = User.objects.get(email=username)
-            # Check if the provided password is correct.
+            # If the user exists, check if the provided password matches the user's password.
             if user.check_password(password):
                 return user
             return None
         except (User.DoesNotExist, User.MultipleObjectsReturned):
-            # Return None if the user does not exist or multiple users are returned.
+            # If the user does not exist or more than one user is found, return None.
             return None
 
-    # This function retrieves a user using their user_id.
     def get_user(self, user_id):
+        """
+        Retrieve a user based on their user ID.
+
+        Parameters:
+        user_id: The ID of the user.
+
+        Returns:
+        The User object if the user exists, None otherwise.
+        """
         try:
-            # Get the user by user_id.
+            # Retrieve the user object based on the provided user ID.
             user = User.objects.get(pk=user_id)
             return user
         except User.DoesNotExist:
-            # Return None if the user does not exist.
+            # If the user does not exist, return None.
             return None
