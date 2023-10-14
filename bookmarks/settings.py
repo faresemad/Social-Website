@@ -21,14 +21,13 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/4.2/howto/deployment/checklist/
 
-# The secret key used for cryptographic signing in Django. It's crucial to keep this value secret!
+# The secret key used for cryptographic signing in Django. It's crucial to keep this value secret! Never expose this in a public repository or production environment.
 SECRET_KEY = "django-insecure-rb0gq-dukkd-gv9t%l8kg!siek6!24ju9w40n=ejke!65hu&it"
 
-# Controls whether the application runs in debug mode. This should be set to False in a production environment!
+# Controls whether the application runs in debug mode. This should always be set to False in a production environment to prevent exposure of sensitive debug information.
 DEBUG = True
 
-
-# Defines a list of strings representing the host/domain names that this Django site can serve.
+# Defines a list of strings representing the host/domain names that this Django site can serve. This should be set to the domain names of your production server in a production environment.
 ALLOWED_HOSTS = ["mysite.com", "localhost", "127.0.0.1"]
 
 
